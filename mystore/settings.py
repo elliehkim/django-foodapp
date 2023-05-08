@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-_v4$)$%#mkn&j61b)c88xcd3e^hkti_4h@mj7=)$y0=ykzikee
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','django-env.eba-nhjknvcb.us-west-2.elasticbeanstalk.com','127.0.0.1']
+ALLOWED_HOSTS = ['localhost','foodapp-env.us-west-2.elasticbeanstalk.com','127.0.0.1']
 
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
