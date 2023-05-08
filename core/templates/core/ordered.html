@@ -1,0 +1,26 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div class="ordered">
+    <div class="thankyou-msg"><p>Thank you!</p></div>
+    {% if order_placed %}
+    <div class="order-msg">
+        <p>Your order is confirmed and will be delivered to your door within an hour!</p>
+    </div>
+    <div class="order-info">
+        <div class="box">
+            <p class="heading">Order Summary</p>
+            <p><span>Order Received: </span> {{order.ordered_date}}</p>
+            <p><span>Order Number: </span> {{order.order_number}}</p>
+            <p><span>Item: </span> 
+                {% for order in order_placed%}
+                <p>{{order.quantity}} x {{order.item }}</p>
+                {% endfor %}
+            </p>
+            <p><span>Amount:</span> {{total_amount}}</p>
+        </div>
+        <a href="{% url 'menu'%}""><button>Go back to Menu</button></a>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

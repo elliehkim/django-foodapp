@@ -1,0 +1,752 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    margin:0px;
+    background-color: #ffdca9;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+/*-----------navbar-----------*/
+.nav{
+    width:100%;
+    background-color: white;
+    display:flex;
+    justify-content: space-between;
+    align-items:center;
+    padding:0 30px;
+}
+
+.logo img{
+    width:250px;
+}
+
+.nav ul{
+    display:flex;
+    list-style: none;
+}
+
+.nav ul li{
+    margin-right:30px;
+}
+
+.nav ul li a{
+    text-decoration:none;
+    color:black;
+    font-weight: 500;
+    font-size:17px;
+}
+
+.nav ul li a:hover{
+    color:#ff511c;
+}
+
+.nav .btns{
+    background:#ffdca9;
+    border:none; 
+    border-radius:5px;
+    margin-right:5px;
+    padding:13px 23px;
+    cursor: pointer;
+    font-weight:600;
+    font-size:15px;
+}
+
+
+.nav .btns:hover{
+    background:#ff511c;
+    color:white;
+}
+
+.cart-icon{
+	width:35px;
+    font-size:25px;
+    color:black;
+    margin:10px;
+    padding:10px;
+}
+
+.cart-icon:hover{
+    color:#ff511c;
+}
+
+.logout-msg{
+    text-decoration: none;
+    color:black;
+    margin-left:10px;
+}
+
+.logout-msg:hover{
+    color:#ff511c;
+}
+
+/*-----------homepage----------*/
+.grid{
+    margin-left:50px;
+}
+.content{
+    display:grid;
+    grid-template-columns: 40% auto;
+    gap:30px;
+    align-items: center;
+    justify-content: space-between;
+    width:100%;
+    margin-top:30px;
+}
+
+.content .content-left{
+    display:block;
+    width:100%;
+}
+
+.content .content-left .info{
+    max-width:100%;
+    display:flex;
+    flex-direction:column;
+    margin-left:30px;
+}
+
+.content .content-left .info h2{
+    font-size: 60px;
+    font-family: 'Kaushan Script', cursive;
+    margin-bottom: 30px;
+}
+
+.content .content-left .info p{
+    font-size: 18px;
+    line-height: 2pc;
+    margin-bottom: 30px;
+    font-family:sans-serif;
+}
+
+.content .content-left button{
+    padding:13px 23px;
+    background-color:#ff511c;
+    color:white;
+    border-radius:5px;
+    border:none;
+    cursor:pointer;
+    margin-left:30px;
+}
+
+.content .content-right{
+    display:block;
+    width: 100%;
+}
+
+.content .content-right img{
+    width:100%;
+    padding: 30px;
+    border-radius: 50%;
+}
+
+.popular{
+    width:100%;
+    display:flex;
+    margin:50px 0;
+    justify-content: center;
+}
+
+.popular .list-items{
+    width: 90%;
+    position: reative;
+    margin-top:60px;
+}
+
+.popular .list-items h3{
+    font-size:30px;
+    font-family: 'Kaushan Script', cursive;
+    margin-bottom: 50px;
+    margin-left:30px;
+}
+
+.popular .list-items .card-list{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom:10%;
+}
+
+.popular .card-list .card{
+    width:20%;
+    height: auto;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius:10px;
+    background: white;
+    box-shadow: 0px 20px #ff511c;
+}
+
+.popular .card-list .card img{
+    width:100%;
+    height:auto;
+    border-radius:50%;
+}
+
+.popular .card-list .card .food-title{
+    padding:40px 0 10px;
+}
+
+.popular .card-list .card .food-title h1{
+    text-align:center;
+    font-weight:bold;
+    font-size:25px;
+    font-family:sans-serif;
+}
+
+.popular .card .price{
+    text-align:center;
+    font-family:sans-serif;
+}
+
+
+/*-----------about----------*/
+
+.about{
+    padding-bottom:50px;
+}
+
+.about img{
+    width:100%;
+}
+
+.about-card{
+    margin:50px;
+    padding:30px;
+}
+
+.about-title{
+    margin-bottom:40px;
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+    font-size: 1.8em;
+}
+
+.about-detail{
+    width:70%;
+    margin:auto;
+    font-size:18px;
+    font-family:sans-serif;
+}
+
+/*------------footer-----------*/
+.footer{
+    background:white;
+    margin:0;
+    padding: 5px 0;
+    text-align:center;
+    }
+    
+.footer .row{
+    margin:1% 0%;
+    padding:5px 0;
+    font-size:0.8em;
+    }
+    
+.footer .row p{
+    margin-bottom:5px;
+}
+
+.footer .row a{
+    font-size:2em;
+    margin:0% 1%;
+    text-decoration:none;
+    color:black;
+}
+
+
+/*----------cart----------*/
+
+.cart{
+    background-color: white;
+    padding:5%;
+    font-size:1.15em;
+}
+
+.cart-btns a{
+    color:black;
+    text-decoration: none;
+    padding:10px 10px;
+    border-radius: 10px;
+}
+
+.cart-btns a:hover{
+    text-decoration: underline;
+}
+
+
+.cart-element{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin:20px;
+    padding: 0 30px;
+}
+
+.cart-header h1{
+    font-family: 'Kaushan Script', cursive;
+    text-align: center;
+    font-size:3em;
+}
+
+.cart-firstrow{
+    display:flex;
+    align-items: flex-stretch;
+    background-color: #ffdca9;
+    margin-bottom:20px;
+    padding:10px 0;
+}
+
+.cart-row{
+	display: flex;
+    align-items: flex-stretch;
+    margin: 20px 0;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.checkout-btns{
+    background:white;
+    color:#ff511c;
+    border:1px solid #ff511c; 
+    border-radius:5px;
+    margin-right:5px;
+    padding:20px 20px;
+    cursor: pointer;
+    font-weight:600;
+    font-size:18px;
+}
+
+.checkout-btns:hover{
+    background: #ff511c;
+    color:white;
+}
+
+.cart-element .table{
+    background-color: #ffdca9;
+    border-radius: 15px;
+    margin:30px 0;
+    padding:30px;
+    font-size:20px;
+}
+
+.quantity{
+	display: inline-block;
+	padding-right:10px;
+}
+
+.cart-row .row-image {
+    width:120px;
+    height:100px;
+}
+
+.cart-row .remove-btn{
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.cart-row .remove-btn:hover{
+    color:#ff511c;
+}
+
+.minus-cart, .plus-cart{
+    cursor:pointer;
+    margin-right:10px;
+}
+
+.minus-cart:hover, .plus-cart:hover{
+    color:#ff511c;
+}
+/*-------login & register------- */
+
+.login, .register {
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image:linear-gradient(#ffdca9,#ececec);
+    background-size: cover;
+    margin-left: -8px;
+    margin-right: -8px;
+}
+
+.loginTitle, .registerTitle{
+    font-size: 60px;
+    font-family: 'Kaushan Script', cursive;
+    font-weight: 700;
+}
+
+.loginForm, .registerForm{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.loginForm > label, .registerForm > label {
+    margin-top: 20px;
+    font-size: 18px;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.loginInput, .registerInput {
+    width:350px;
+    padding: 15px;
+    background-color: white;
+    border: none;
+    border-radius:10px;
+}
+
+.loginButton, .registerButton{
+    margin-top: 30px;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #ff511c;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+
+/*--------------menu---------------*/
+
+.menu{
+    width: 100%;
+    padding: 70px 0;
+}
+
+
+.menu h1{
+    font-size:3.5em;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:50px;
+    font-family: 'Kaushan Script', cursive;
+}
+
+.menu .menu_box{
+    width:95%;
+    margin: 0 auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap:15px;
+}
+
+.menu .menu_box .menu_card{
+    padding-top:10px;
+    margin-bottom:20px;
+    background-color: #f7ede2;
+    border-radius:10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+.menu .menu_box .menu_card .menu_image{
+    width:90%;
+    height:60%;
+    margin: auto;
+}
+
+.menu_card .menu_image img{
+    width: 100%;
+    height: 100%;
+    object-fit:cover;
+    object-position:center;
+}
+
+.menu_card .menu_info h2{
+    text-align:center;
+    margin: 10px 0;
+    padding-top:15px;
+}
+
+.menu_card .menu_info h3{
+    text-align: center;
+    margin: 10px 0;
+}
+
+.menu_card .menu_info{
+    text-decoration: none;
+    text-align: center;
+}
+
+.menu_card .menu_info .menu_btn{
+    color:white;
+    font-size:1em;
+    background:#ff511c;
+    padding: 10px;
+    border:none;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.menu_card .menu_info .menu_btn:hover{
+    background-color: #f7ede2;
+    color:#ff511c;
+    border: 1px solid #ff511c;
+}
+/*----------contact--------------*/
+
+
+.contact{
+    margin:10%;
+    font-size:2em;
+}
+
+.contact h1{
+    text-align: center;
+    font-family: 'Kaushan Script', cursive;
+}
+
+.contact-row{
+    display:flex;
+}
+
+.location{
+    width:70%;
+    margin:auto;
+    padding: 80px 0;
+
+}
+
+.location iframe{
+    width:100%;
+    margin-bottom:50px;
+}
+
+.contact-us{
+    width:80%;
+    margin:auto;
+}
+
+.contact-col{
+    flex-basis:48%;
+    margin-bottom:30px;
+}
+
+.contact-col div{
+    display:flex;
+    align-items: center;
+    margin-bottom:40px;
+}
+
+.contact-col div .fa-solid{
+    font-size:25px;
+    color:#ff511c;
+    margin:10px;
+    margin-right:30px;
+}
+
+.contact-col div p{
+    padding:0;
+    font-size:17px;
+    color:grey;
+}
+
+.contact-col div h5{
+    font-size:20px;
+    margin-bottom:5px;
+    font-family:sans-serif;
+    font-weight:400;
+}
+
+.contact-col input, .contact-col textarea{
+    width:100%;
+    padding:15px;
+    margin-bottom:17px;
+    outline:none;
+    border: 1px solid #ccc;
+}
+.contact-col h4{
+    color:#ff511c;
+    font-family:sans-serif;
+    text-align: center;
+    margin-bottom:20px;
+}
+
+
+.contact-col form{
+    text-align: center;
+}
+
+.contact-col .message-btn{
+    background-color: white;
+    padding: 15px 15px;
+    color:#ff511c;
+    border: 1px solid #ff511c;
+    font-weight:600;
+    cursor:pointer;
+}
+
+.contact-col .message-btn:hover{
+    background-color:#ff511c;
+    color:white;
+}
+
+
+/*------------Checkout-----------------*/
+
+.checkout-container{
+    border-radius:20px;
+    padding:70px;
+    margin:10% 20%;
+    background:#fff;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2) ;
+    display:flex;
+    flex-direction: column;
+}
+
+.checkout-container .order-summary{
+    border-top: 1px solid grey;
+    border-bottom:1px solid grey;
+    margin:10px;
+    padding:10px;
+}
+
+.checkout-container .order-summary p{
+    font-weight:600;
+    color:#ff511c;
+    margin-bottom:15px;
+    text-transform:uppercase;
+}
+
+.checkout-container .order-items img{
+    width:70%;
+}
+
+.checkout-container .order-items{
+    display:flex;
+}
+
+.order-total{
+    text-align: right;
+    margin-right:20px;
+}
+
+.checkout-container h1{
+    text-align: center;
+    font-family:'Kaushan Script', cursive;
+    font-size:3em;
+    margin-bottom:30px;
+}
+
+.checkout-container .box{
+    display: flex;
+}
+
+.checkout-container .box .row{
+    margin:10px;
+    width:50%;
+}
+.checkout-container .row .title{
+    color:#ff511c;
+    margin:10px 0;
+    text-transform:uppercase;
+    font-weight:600;
+}
+
+
+.checkout-container .row .input-box{
+    margin:15px 0;
+}
+
+
+.checkout-container .row .input-box input{
+    width:100%;
+    border: 1px solid #ccc;
+    padding:10px 15px;
+    font-size:15px;
+    text-transform: none;
+}
+
+.checkout-container .row .input-box input:focus{
+    border: 1px solid black;
+}
+
+.checkout-container .input-box select{
+    padding:10px 15px;
+    border: 1px solid #ccc;
+
+}
+
+.checkout-container .btns{
+    color:white;
+    background: #ff511c;
+    padding: 15px 20px;
+    border:none;
+    font-size:15px;
+    cursor: pointer;
+    margin-top:30px;
+    width:100%;
+}
+
+
+/*------------Ordered Page-----------------*/
+
+.ordered{
+    background-color: white;
+}
+
+.thankyou-msg{
+    font-size:50px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.order-msg{
+    text-align: center;
+    align-items: center;
+    margin-top:50px;
+}
+.order-info{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size:1.15em;
+}
+
+.order-info .box{
+    margin-top:5%;
+    padding:20px;
+    border:1px solid black;
+    border-radius: 10px;
+    padding:25px 55px;
+}
+
+.order-info .box .heading{
+    text-align: center;
+    font-size:1.2em;
+    font-weight:900;
+    margin-bottom:30px;
+}
+.order-info .box span{
+    color:#ff511c;
+    font-weight: 700;
+}
+.order-info button{
+    margin:50px;
+    background-color: #ff511c;
+    padding:15px;
+    cursor:pointer;
+    border:white;
+    color:white;
+}
+
+.order-info button:hover{
+    opacity: 80%;
+}
+
+.order-info img{
+    width:20px;
+}

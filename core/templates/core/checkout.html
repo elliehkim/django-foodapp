@@ -1,0 +1,111 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div class="checkout">
+    <div class="checkout-container">
+        <h1>Checkout</h1>
+        <div class="order-summary">
+            <p>Your Order Summary</p>
+            <div class="order-items">
+                <div style="flex:1"><strong></strong></div>
+                <div style="flex:2"><strong>Item</strong></div>
+                <div style="flex:1"><strong>Qty</strong></div>
+                <div style="flex:1"><strong>Price</strong></div>
+            </div>
+
+            {% for c in cart%}
+            <div class="order-items">
+                <div style="flex:1"><img class="item-image" src="{{c.item.image.url}}"></div>
+                <div style="flex:2">{{c.item.name}}</div>
+                <div style="flex:1">{{c.quantity}}</div>
+                <div style="flex:1">{{c.total_cost}}</div>
+            </div>
+            {% endfor %}
+
+            <div class="order-total">
+                <p>Total:  $ {{total_amount}}</p>
+            </div>
+        </div>
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="box">
+                <div class="row">
+                        <div class="title">Shipping Address</div>
+
+                        <div class="input-box">
+                            <span >Full Name:</span>
+                            <input name="fullname" type="text" required>
+                        </div>
+                        <div class="input-box">
+                            <span>Email:</span>
+                            <input type="email" name="email" required>
+                        </div>
+                        <div class="input-box">
+                            <span>Address:</span>
+                            <input type="text" name="address" required>
+                        </div>
+                        <div class="input-box">
+                            <span>Zip Code:</span>
+                            <input type="text" name="zipcode" required>
+                        </div>
+                </div>
+
+                <div class="row">
+                    <div class="title">Payment</div>
+
+                    <div class="input-box">
+                        <span>Name on card:</span>
+                        <input type="text" name="name_card" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span>Card Number::</span>
+                        <input type="nummber" name="card_num" required>
+                    </div>
+
+                    <div class="input-box">
+                        <span>Expiry Date: </span>
+                        <div class="selection">
+                            <div class="date">
+                                <select name="months" required>
+                                    <option value="Jan">Jan</option>
+                                    <option value="Feb">Feb</option>
+                                    <option value="Mar">Mar</option>
+                                    <option value="Apr">Apr</option>
+                                    <option value="May">May</option>
+                                    <option value="Jun">Jun</option>
+                                    <option value="Jul">Jul</option>
+                                    <option value="Aug">Aug</option>
+                                    <option value="Sep">Sep</option>
+                                    <option value="Oct">Oct</option>
+                                    <option value="Nov">Nov</option>
+                                    <option value="Dec">Dec</option>
+                                </select>
+                                <select name="years" required>
+                                    {% for year in years %}
+                                    <option value="{{year}}">{{year}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-box">
+                        <span>CVC: </span>
+                        <input type="text" name="cvc" required placeholder="3 Digits">
+                    </div>
+                </div>
+            </div>
+            {% if messages %}
+                {% for message in messages %}
+                    <script> 
+                    alert("{{ message }}") 
+                    </script>
+                {% endfor %}
+            {% endif %}
+            <input class="btns" type="submit" value="Proceed to Checkout">
+        </form>
+    </div>
+</div> 
+{% endblock %}

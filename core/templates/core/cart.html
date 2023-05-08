@@ -1,0 +1,64 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div class="cart">
+        <div class="cart-element">
+            <div class="cart-btns">
+                <a href="{% url 'menu' %}">&#x2190; Continue Shopping</a></button>
+            </div>
+            <br>
+            <div class="cart-header">
+                <h1>Shopping Cart</h1>
+            </div>
+        </div>
+        <br>
+        <div class="cart-element">
+            <div class="cart-firstrow">
+                <div style="flex:1.5"></div>
+                <div style="flex:2"><strong>Item</strong></div>
+                <div style="flex:1"><strong>Price</strong></div>
+                <div style="flex:1"><strong>Quantity</strong></div>
+                <div style="flex:1"><strong>Total</strong></div>
+                <div style="flex:0.5"></div>
+            </div>
+            {% for c in cart%}
+            <div class="cart-row">
+                <div style="flex:1.5"><img class="row-image" src="{{c.item.image.url}}"></div>
+                <div style="flex:2">{{c.item.name}}</div>
+                <div style="flex:1">$ {{c.item.price}}</div>
+                <div style="flex:1">
+                    <a class="minus-cart" pid={{c.item.id}}><i class="fa-solid fa-square-minus"></i></a>
+                    <p class="quantity">{{c.quantity}}</p>
+                    <a class="plus-cart" pid={{c.item.id}}><i class="fa-solid fa-square-plus"></i></a>
+                </div>
+                <div style="flex:1">$ {{c.total_cost}}</div>
+                <div style="flex:0.5">
+                    <a class="remove-btn" pid={{c.item.id}}><i class="fa-solid fa-x"></i></a>
+                </div>
+            </div>
+            
+            {% endfor %}
+
+            {% if not cart %}
+                <p style="text-align:center">Empty</p>
+            {% endif %}
+
+            <table class="table">
+                <tr>
+                    <th><p>Total : $ <span id="total_amount">{{total_amount}}</span></p></th>
+                    <th>
+                        <a href="{% url 'checkout'%}"><button class="checkout-btns">Checkout</button></a>
+                    </th>
+                </tr>
+            </table>
+
+            {% if messages %}
+            {% for message in messages %}
+                <script> 
+                alert("{{ message }}") 
+                </script>
+            {% endfor %}
+            {% endif %}
+        </div>
+</div>
+{% endblock content%}

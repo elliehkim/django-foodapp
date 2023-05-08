@@ -1,0 +1,29 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="menu">
+    <h1>Our Menu</h1>
+
+    <div class="menu_box">
+        {% for item in items %}
+        <div class="menu_card">
+            <div class="menu_image">
+                <img src="{{item.image.url}}">
+            </div>
+            <div class="menu_info">
+                <h2>{{item.name}}</h2>
+                <h3>${{item.price}}</h3>
+
+                <form action="/add-to-cart">
+                    <input type="hidden" name="item_id" value="{{item.id}}" />
+                    <button class="menu_btn">Add to Cart</button>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+</div>
+
+{% endblock %}

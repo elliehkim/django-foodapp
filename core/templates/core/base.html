@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>Ted's Bar and Cafe</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+</head>
+<body>
+    <div class="container">
+        <div class="nav">
+            <div class="logo">
+                <a href="{% url 'home' %}"><img src="{% static 'images/logo.png' %}"></a>
+            </div>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'menu' %}">Menu</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+            <div>
+                {% if request.user.is_authenticated %}
+                    <span>Hello {{user.username}}! </span>
+                    <span><a href="{% url 'logout' %}" class="logout-msg">Logout</a></span>
+                {% else %}
+                    <a href="{% url 'login' %}"><button class="btns">Login</button></a>
+                    <a href="{% url 'register' %}"><button class="btns">Register</button></a>
+                {% endif %}
+                <a href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping cart-icon"></i></a>
+            </div>
+        </div>
+        {% block content %}
+
+        {% endblock content %}
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    
+    <script src="{% static 'js/app.js' %}"></script>
+
+
+</body>
+
+<footer>
+    <div class="footer">
+        
+    <div class="row">
+    <a href="#"><i class="fa-brands fa-facebook"></i>
+    </a>
+    <a href="#"><i class="fa-brands fa-instagram"></i></a>
+    </div>
+    
+    <div class="row">
+        <p>Copyright© Ted's Bar & Cafe</p>
+        <p>All Rights Reserved</p> 
+    </div>
+    </div>
+    </footer>
+    
+
+</html>

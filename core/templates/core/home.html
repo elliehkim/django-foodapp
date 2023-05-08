@@ -1,0 +1,38 @@
+{% extends 'core/base.html' %}
+{% load static %}
+{% block content %}
+<div class="grid">
+    <div class="content">
+            <div class="content-left">
+                <div class="info">
+                    <h2>Order Your Food Now</h2>
+                    <p>Ted's Bar and Cafe is now delivering food right at your doorstep!</p>
+                </div>
+                <a href="{% url 'menu' %}"><button>Explore Food</button></a>
+            </div>
+            <div class="content-right">
+                <img src="{% static 'images/cafe.png' %}">
+            </div>
+    </div>
+</div>
+<div class="popular">
+    <div class="list-items">
+        <h3>Popular Dishes</h3>
+        <div class="card-list">
+            {% for item in items %}
+            {% if forloop.counter < 5 %}
+                <div class="card">
+                    <img src="{{item.image.url}}" alt="">
+                    <div class="food-title">
+                        <h1>{{ item.name }}</h1>
+                    </div>
+                    <div class="price">
+                        <span>$ {{ item.price }} </span>
+                    </div>
+                </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock content %}
