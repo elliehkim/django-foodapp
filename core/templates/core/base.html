@@ -35,6 +35,20 @@
                 <a href="{% url 'cart' %}"><i class="fa-solid fa-cart-shopping cart-icon"></i></a>
             </div>
         </div>
+        {% if messages %}
+        <div class="messages">
+            {% for message in messages %}
+            <p class="message {{ message.tags }}">{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if form.errors %}
+        <div class="message error">
+            {{ form.errors }}
+        </div>
+        {% endif %}
+
         {% block content %}
 
         {% endblock content %}
@@ -42,9 +56,11 @@
     
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-    
+  
     <script src="{% static 'js/app.js' %}"></script>
-
+    <script>
+        $('.message').hide().fadeIn(500).delay(2000).fadeOut(500);  
+        </script>
 
 </body>
 

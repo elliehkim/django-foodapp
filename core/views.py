@@ -6,6 +6,9 @@ from django.db.models import Q
 import datetime
 from django.utils.crypto import get_random_string
 from django.contrib import messages
+from .forms import ContactForm
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 
 
 def home(request):
@@ -24,7 +27,27 @@ def menu(request):
     return render(request, 'core/menu.html', context)
 
 def contact(request):
-    return render(request, 'core/contact.html')
+	if request.method == 'POST':
+		form = ContactForm(request.POST)
+		if form.is_valid():
+			subject = "Website Inquiry" 
+			body = {
+			'name': form.cleaned_data['name'], 
+			'email': form.cleaned_data['email'], 
+			'subject': form.cleaned_data['subject'], 
+			'message':form.cleaned_data['message'], 
+			}
+			message = "\n".join(body.values())
+
+			try:
+				send_mail(subject, message, 'ellie93kim@gmail.com', ['ellie93kim@gmail.com']) 
+			except BadHeaderError:
+				return HttpResponse('Invalid header found.')
+			return redirect ('home')
+      
+	form = ContactForm()
+	return render(request, 'core/contact.html', {'form':form})
+
 
 #CART FUNCTION
 @login_required(login_url='login')
@@ -124,14 +147,17 @@ def checkout(request):
         email = request.POST['email']
         address = request.POST['address']
         zipcode = request.POST['zipcode']
-        print(fullname,email,address,zipcode)
 
+        c_month = request.POST['months']
+        c_year = request.POST['years']
         card_number = request.POST['card_num']
         cvc = request.POST['cvc']
-
+        today = datetime.date.today()
         if len(card_number) != 16 or len(cvc) != 3:
             messages.error(request,'Card details not valid. Try again')
             return redirect('checkout')
+        elif int(c_year) == int(today.year) and int(c_month) < int(today.month):
+            messages.error(request, 'Invalid card expiry date.')
         else:
             order_id = get_random_string(8, allowed_chars='0123456789')
             OrderDetails(order_number=order_id, user=user, name=fullname,email=email,address=address,zipcode=zipcode).save()
@@ -148,7 +174,6 @@ def checkout(request):
 
 def ordered(request):
     order_id = request.session['order_id']
-    print(order_id)
     order_placed = Order.objects.filter(user=request.user, order_number=order_id)
     total_amount = 0
     for order in order_placed:

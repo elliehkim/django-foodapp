@@ -48,3 +48,4 @@ class Order(models.Model):
     @property
     def total_cost(self):
         return self.quantity * self.item.price
+

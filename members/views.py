@@ -3,6 +3,7 @@ from django.contrib import messages
 from .forms import CreateUserForm
 
 from django.contrib.auth import authenticate, login, logout
+
 # Create your views here.
 def register(request):
     if request.user.is_authenticated:
@@ -34,10 +35,9 @@ def loginPage(request):
                 login(request, user)
                 return redirect('home')
             else:
-                messages.info(request,'Username or Password is incorrect')
+                messages.error(request,'Username or Password is incorrect')
             
-        context = {}
-        return render(request, 'members/login.html', context)
+        return render(request, 'members/login.html', )
 
 
 def logoutUser(request):

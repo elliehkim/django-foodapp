@@ -35,11 +35,12 @@
             </div>
             <div class="contact-col">
                 <h4>Get in touch with us</h4>
-                <form action="">
-                    <input type="text" placeholder="Enter your name" required>
-                    <input type="email" placeholder="Enter email address" required>
-                    <input type="text" placeholder="Enter your subject" required>
-                    <textarea rows="8" placeholder="Message" required></textarea>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form.name }}
+                    {{ form.email }}
+                    {{ form.subject }}
+                    {{ form.message }}
                     <button class="message-btn" type="submit">Send Message</button>
                 </form>
             </div>

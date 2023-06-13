@@ -4,6 +4,7 @@
     box-sizing:border-box;
 }
 
+
 body{
     margin:0px;
     background-color: #ffdca9;
@@ -82,6 +83,26 @@ body{
 
 .logout-msg:hover{
     color:#ff511c;
+}
+
+.message {
+	border-radius: 10px;
+	box-shadow: 3px 3px 4px 0px rgba(50, 50, 50, 0.75);
+	color: white;
+	margin-bottom: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 15px;
+	padding-top: 15px;
+	text-align: center;
+}
+
+.message.success {
+	background-color: rgba(0, 128, 0, 0.66);
+}
+
+.message.error {
+	background-color: rgba(255, 0, 0, 0.676);
 }
 
 /*-----------homepage----------*/
@@ -367,7 +388,7 @@ body{
 /*-------login & register------- */
 
 .login, .register {
-    height: calc(100vh - 50px);
+    height: calc(100vh);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -382,6 +403,7 @@ body{
     font-size: 60px;
     font-family: 'Kaushan Script', cursive;
     font-weight: 700;
+    margin-top:20px;
 }
 
 .loginForm, .registerForm{
@@ -418,6 +440,10 @@ body{
     padding: 15px;
 }
 
+.direct-register{
+    text-align: center;
+    padding-top:15px;
+}
 
 /*--------------menu---------------*/
 
@@ -560,13 +586,14 @@ body{
     font-weight:400;
 }
 
-.contact-col input, .contact-col textarea{
+.contact-col .contact-input{
     width:100%;
     padding:15px;
     margin-bottom:17px;
     outline:none;
     border: 1px solid #ccc;
 }
+
 .contact-col h4{
     color:#ff511c;
     font-family:sans-serif;
