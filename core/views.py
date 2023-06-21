@@ -27,26 +27,27 @@ def menu(request):
     return render(request, 'core/menu.html', context)
 
 def contact(request):
-	if request.method == 'POST':
-		form = ContactForm(request.POST)
-		if form.is_valid():
-			subject = "Website Inquiry" 
-			body = {
-			'name': form.cleaned_data['name'], 
-			'email': form.cleaned_data['email'], 
-			'subject': form.cleaned_data['subject'], 
-			'message':form.cleaned_data['message'], 
-			}
-			message = "\n".join(body.values())
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = "Website Inquiry" 
+            body = {
+                'name': form.cleaned_data['name'], 
+                'email': form.cleaned_data['email'], 
+                'subject': form.cleaned_data['subject'], 
+                'message': form.cleaned_data['message'], 
+            }
+            message = "\n".join(body.values())
 
-			try:
-				send_mail(subject, message, 'ellie93kim@gmail.com', ['ellie93kim@gmail.com']) 
-			except BadHeaderError:
-				return HttpResponse('Invalid header found.')
-			return redirect ('home')
-      
-	form = ContactForm()
-	return render(request, 'core/contact.html', {'form':form})
+            try:
+                send_mail(subject, message, 'ellie93kim@gmail.com', ['ellie93kim@gmail.com'])
+                messages.success(request, "Thank you! Your inquiry has been received.")
+            except BadHeaderError:
+                return HttpResponse('Invalid')
+            
+            return redirect('home')
+    form = ContactForm()
+    return render(request, 'core/contact.html', {'form':form})
 
 
 #CART FUNCTION

@@ -17,7 +17,7 @@
                 <p>{{order.quantity}} x {{order.item }}</p>
                 {% endfor %}
             </p>
-            <p><span>Amount:</span> {{total_amount}}</p>
+            <p><span>Amount:</span> $ {{total_amount}}</p>
         </div>
         <a href="{% url 'menu'%}""><button>Go back to Menu</button></a>
     </div>
